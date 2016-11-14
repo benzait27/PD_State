@@ -1,7 +1,6 @@
 
 
-import MachineCafe.Machine;
-import MachineCafe.SaisieErroneeException;
+import MachineCafeAvecMaster.*;
 
 public class Client {
 
@@ -10,11 +9,10 @@ public class Client {
 		m.askCoffee();
 		m.give(5);
 		m.askCoffee();
-		m.give(30);
+		m.give(10);
 		m.askCoffee();
-		m.give(1);
-		m.askCoffee();
-
+		System.out.println(m.getRefund());
+		System.out.println(m.getRefund());
 	}
 
 }

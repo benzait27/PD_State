@@ -7,7 +7,7 @@ public class Machine {
 	
 	public Machine() {
 		super();
-		this.state = new GiveImpossible(0);
+		this.state = (Mstate) new GiveImpossible(0);
 	}
 	public void askCoffee() throws SaisieErroneeException{ state = state.askCoffee() ; };
 	public void askTea() throws SaisieErroneeException{ state = state.askTea(); };

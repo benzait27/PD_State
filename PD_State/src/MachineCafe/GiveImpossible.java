@@ -1,7 +1,7 @@
 package MachineCafe;
 
+
 public class GiveImpossible implements Mstate{
-	
 	
 	int solde;
 	
@@ -35,7 +35,9 @@ public class GiveImpossible implements Mstate{
 	@Override
 	public Mstate give(int argent) {
 		solde+=argent;
-		if (solde>10) return (GivePossible) new GivePossible(solde);	
-		else return (GiveImpossible) new GiveImpossible(solde);
+		if (solde>10) return (Mstate) ((GivePossible) new GivePossible(solde));	
+		else return ((Mstate) new GiveImpossible(solde));
 	}
+
+
 }

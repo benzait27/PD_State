@@ -1,5 +1,6 @@
 package MachineCafeAvecMaster;
 
+
 public class Machine {
 	
 	public Mstate  state;
@@ -13,7 +14,7 @@ public class Machine {
 	}
 	public Machine() {
 		super();
-		this.state = new GiveImpossible(0);
+		this.state = GiveImpossible.getInstance(0);
 	}
 	public void askCoffee() throws SaisieErroneeException { state.askCoffee(this) ; };
 	public void askTea() throws SaisieErroneeException{ state.askTea(this); };

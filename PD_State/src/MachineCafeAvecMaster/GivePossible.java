@@ -3,18 +3,25 @@ package MachineCafeAvecMaster;
 public class GivePossible implements Mstate{
 
 	
-	int solde;
+public static GivePossible state = new GivePossible(0);
+	
+	static int solde;
 	
 	
-	public GivePossible(int solde) {
+	private GivePossible(int solde) {
 		super();
-		this.solde = solde;
+		GivePossible.solde = solde;
 	}
-
+	
+	public static GivePossible getInstance(int solde){
+		GivePossible.solde=solde;
+		return GivePossible.state;
+		
+	} 
 	@Override
 	public void askCoffee(Machine m) {
 		System.out.println("OK");
-		this.solde-=10;
+		GivePossible.solde-=10;
 		m.setState((Mstate)new State2(this.solde));
 	}
 
@@ -32,15 +39,15 @@ public class GivePossible implements Mstate{
 			  throw new SaisieErroneeException("Impossible");
 			  } catch (SaisieErroneeException e) {
 				  System.out.println("Impossible");
-				  m.setState((Mstate)this);
+				  m.setState(GivePossible.getInstance(solde));
 			  }
 		}
 
 	@Override
 	public int getRefund(Machine m) throws SaisieErroneeException {
-		  m.setState((Mstate)new GiveImpossible(solde));
+		  m.setState((Mstate)GiveImpossible.getInstance(solde));
 			int sol = solde;
-			this.solde=0;
+			GivePossible.solde=0;
 			return sol;
 	}
 

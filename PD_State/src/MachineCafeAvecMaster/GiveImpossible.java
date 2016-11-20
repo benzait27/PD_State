@@ -41,7 +41,7 @@ public class GiveImpossible implements Mstate{
 	@Override
 	public void give(int argent,Machine m) {
 		solde+=argent;
-		if (solde>10)  m.setState((Mstate)new GivePossible(solde));	
+		if (solde>10)  m.setState((Mstate) GivePossible.getInstance(solde));	
 		else  m.setState(GiveImpossible.getInstance(solde));
 	}
 

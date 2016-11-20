@@ -22,14 +22,14 @@ public static GivePossible state = new GivePossible(0);
 	public void askCoffee(Machine m) {
 		System.out.println("OK");
 		GivePossible.solde-=10;
-		m.setState((Mstate)new State2(this.solde));
+		m.setState((Mstate)State2.getInstance(solde));
 	}
 
 	@Override
 	public void askTea(Machine m) {
 		System.out.println("OK");
-		this.solde-=10;
-		m.setState((Mstate)new State2(this.solde));
+		State2.solde-=10;
+		m.setState((Mstate)State2.getInstance(solde));
 		
 	}
 
